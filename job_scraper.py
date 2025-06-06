@@ -6,10 +6,17 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 def scrape_indeed(url):
+    service = Service('./chromedriver.exe')
+    driver = webdriver.Chrome(service=service)
+    driver.get('https://www.google.com')
+    print(driver.title)
+    driver.quit()
+    '''
     service = Service('./chromedriver.exe')  # update this path
     driver = webdriver.Chrome(service=service)
 
     driver.get(url)
+
     try:
         # Wait for the job description element to load if needed
         wait = WebDriverWait(driver, 10)
@@ -21,4 +28,4 @@ def scrape_indeed(url):
 
     driver.quit()
     return job_desc_text
-    
+    '''
